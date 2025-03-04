@@ -11,11 +11,16 @@ import { useState } from "react";
 
 export default function Page(){
     const [usuario, setUsuario] = useState<Usuario>(usuarios[0])
+
+    function salvar() {
+        //Salvar no banco de dados
+    }
+
     return (
         <Pagina className="flex flex-col gap-10">
             <Titulo icone={IconUser} principal="Usuários" segundario="Cadastro de usuário"/>
             {/* <ListaUsuario/> */}
-            <FormularioUsuario usuario={usuario} onChange={setUsuario}/>
+            <FormularioUsuario usuario={usuario} onChange={setUsuario} cancelar={() => {}} salvar={salvar}/>
         </Pagina>
     )
 }
