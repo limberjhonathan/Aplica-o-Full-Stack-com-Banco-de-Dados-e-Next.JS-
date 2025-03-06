@@ -1,5 +1,5 @@
 import { Usuario } from "@prisma/client";
-import { PrismaClient } from "@prisma/client/extension";
+import { PrismaClient } from "@prisma/client";
 
 export default class RepositorioUsuario {
     private static db: PrismaClient = new PrismaClient()
@@ -22,7 +22,7 @@ export default class RepositorioUsuario {
 
     static async obterPorId(id: string): Promise<Usuario> {
         const usuario = await this.db.usuario.findUnique({
-            where: id
+            where: { id }
         })
 
         return usuario as Usuario
